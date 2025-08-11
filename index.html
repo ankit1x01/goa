@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shifoyage Goa Trip: A Journey of Joy, Freedom, and Connection</title>
+    <!-- Swiper.js for Image Carousels -->
+    <link
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <style>
+      /* Custom styles for a vibrant, playful Goa vibe */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #fffbf5; /* A warm, sandy off-white */
+        color: #4a4a4a;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+      }
+      .shifoyage-green {
+        background-color: #2f4f4f;
+      } /* Dark Slate Gray */
+      .shifoyage-green-text {
+        color: #2f4f4f;
+      }
+      .shifoyage-gold {
+        color: #ffd700;
+      } /* Gold */
+      .shifoyage-coral {
+        color: #ff6f61;
+      } /* Living Coral */
+
+      /* Hero section with fixed background for a parallax effect */
+      .hero-section {
+        background-image: url("https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1974&auto=format&fit=crop");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      /* Playful hover effects for icons */
+      .icon-card:hover {
+        transform: translateY(-12px) rotate(-2deg);
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+      }
+      .icon-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      /* Interactive Timeline Styling */
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        background: linear-gradient(to bottom, #ff6f61, #ffd700);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+        border-radius: 6px;
+        animation: drawLine 4s ease-out forwards;
+      }
+      .timeline-container {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+      .timeline-container.left {
+        left: 0;
+      }
+      .timeline-container.right {
+        left: 50%;
+      }
+
+      .timeline-container::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -17px;
+        background-color: #2f4f4f;
+        border: 5px solid #ffd700;
+        top: 25px;
+        border-radius: 50%;
+        z-index: 1;
+        animation: popIn 0.5s ease-out forwards;
+        animation-delay: calc(var(--delay) * 0.5s);
+        opacity: 0;
+      }
+      @keyframes popIn {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .timeline-container.right::after {
+        left: -16px;
+      }
+      .timeline-content {
+        padding: 25px;
+        background-color: white;
+        position: relative;
+        border-radius: 16px;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .timeline-content:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+      .session-box {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-left-width: 4px;
+        border-radius: 0.5rem;
+      }
+      .session-day1 {
+        border-color: #34d399;
+        background-color: #f0fdfa;
+      }
+      .session-day3 {
+        border-color: #fbbf24;
+        background-color: #fffbeb;
+      }
+      .session-day5 {
+        border-color: #f87171;
+        background-color: #fef2f2;
+      }
+
+      /* Swiper Carousel for Itinerary Photos */
+      .swiper-container {
+        width: 100%;
+        height: 250px;
+        border-radius: 12px;
+        margin-top: 1.5rem;
+      }
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #ffd700;
+        --swiper-navigation-size: 30px;
+      }
+
+      @keyframes drawLine {
+        from {
+          height: 0;
+        }
+        to {
+          height: 100%;
+        }
+      }
+
+      /* Fade-in Animation for Sections */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Pulsing Animation for Offers */
+      .pulse-offer {
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(255, 111, 97, 0.7);
+        }
+        70% {
+          transform: scale(1.05);
+          box-shadow: 0 0 0 10px rgba(255, 111, 97, 0);
+        }
+      }
+
+      /* FAQ Accordion Styling */
+      .faq-question {
+        cursor: pointer;
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.6s ease-in-out;
+      }
+
+      /* Bouncing Floating Button */
+      .book-now-button {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 50;
+        animation: bounce 2.5s ease-in-out infinite;
+      }
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-25px);
+        }
+        60% {
+          transform: translateY(-15px);
+        }
+      }
+
+      /* Gemini AI Feature Styles */
+      .gemini-feature-box {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      }
+      .gemini-result-box {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #ff6f61;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <style>
+      .shifoyage-difference-card {
+        /* A soft, inviting background gradient */
+        background: linear-gradient(135deg, #ffffff 0%, #fefcfb 100%);
+        position: relative;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      /* Decorative background blobs for a soft, organic feel */
+      .blob1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 111, 97, 0.08) 0%,
+          rgba(255, 111, 97, 0) 70%
+        );
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        animation: spin-slow 20s linear infinite;
+      }
+
+      .blob2 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 215, 0, 0.08) 0%,
+          rgba(255, 215, 0, 0) 70%
+        );
+        transform: translate(50%, 50%);
+        z-index: 0;
+        animation: spin-slow 25s linear infinite reverse;
+      }
+
+      /* Slow spinning animation for the blobs */
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Gentle pulsing animation for the central icon to draw attention */
+      .pulsing-icon {
+        animation: pulse-icon 5s infinite ease-in-out;
+      }
+
+      @keyframes pulse-icon {
+        0% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+      }
+    </style>
+
+    <style>
+      .why-shifoyage-card {
+        background-color: #ffffff;
+        border: 1px solid #f0f0f0;
+        border-radius: 1.5rem; /* 24px */
+        transition: transform 0.3s ease, box-shadow 0.3s ease,
+          border-color 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .why-shifoyage-card:hover {
+        transform: translateY(-10px);
+        border-color: #ff6f61; /* Coral border on hover */
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+
+      .why-shifoyage-card .icon-container {
+        width: 64px;
+        height: 64px;
+        border-radius: 1rem; /* 16px */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .why-shifoyage-card:hover .icon-container {
+        transform: scale(1.1) rotate(-5deg);
+      }
+
+      /* Unique background colors for each icon container */
+      .icon-bg-1 {
+        background-color: rgba(47, 79, 79, 0.1);
+      } /* Light Slate Gray */
+      .icon-bg-2 {
+        background-color: rgba(255, 111, 97, 0.1);
+      } /* Light Coral */
+      .icon-bg-3 {
+        background-color: rgba(255, 215, 0, 0.15);
+      } /* Light Gold */
+      .icon-bg-4 {
+        background-color: rgba(52, 211, 153, 0.1);
+      } /* Light Emerald */
+      .icon-bg-5 {
+        background-color: rgba(96, 165, 250, 0.1);
+      } /* Light Blue */
+      .icon-bg-6 {
+        background-color: rgba(248, 113, 113, 0.1);
+      } /* Light Red */
+    </style>
+    <!-- Enhanced Itinerary Section -->
+    <style>
+      /* Quick Itinerary Card Styles */
+      .quick-itinerary-card {
+        background: #fff;
+        border-radius: 1.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #f0f0f0;
+      }
+      .quick-itinerary-card:hover {
+        transform: translateY(-12px) rotate(2deg);
+        box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.15);
+      }
+      .quick-itinerary-card .day-badge {
+        background-color: #2f4f4f;
+        color: #ffd700;
+        font-family: "Playfair Display", serif;
+      }
+      .quick-itinerary-card .icon {
+        font-size: 2.5rem; /* 40px */
+        line-height: 1;
+      }
+
+      /* Timeline styles remain largely the same, but we ensure they work with the new content */
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        background: linear-gradient(to bottom, #ff6f61, #ffd700);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+        border-radius: 6px;
+        animation: drawLine 4s ease-out forwards;
+      }
+      .timeline-container {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+      .timeline-container.left {
+        left: 0;
+      }
+      .timeline-container.right {
+        left: 50%;
+      }
+      .timeline-container::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -17px;
+        background-color: #2f4f4f;
+        border: 5px solid #ffd700;
+        top: 25px;
+        border-radius: 50%;
+        z-index: 1;
+        animation: popIn 0.5s ease-out forwards;
+        animation-delay: calc(var(--delay) * 0.5s);
+        opacity: 0;
+      }
+      @keyframes popIn {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .timeline-container.right::after {
+        left: -16px;
+      }
+      .timeline-content {
+        padding: 25px;
+        background-color: white;
+        position: relative;
+        border-radius: 16px;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .timeline-content:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+      .session-box {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-left-width: 4px;
+        border-radius: 0.5rem;
+      }
+      .session-day1 {
+        border-color: #34d399;
+        background-color: #f0fdfa;
+      }
+      .session-day3 {
+        border-color: #fbbf24;
+        background-color: #fffbeb;
+      }
+      .session-day5 {
+        border-color: #f87171;
+        background-color: #fef2f2;
+      }
+
+      /* Swiper Carousel for Itinerary Photos */
+      .swiper-container {
+        width: 100%;
+        height: 250px;
+        border-radius: 12px;
+        margin-top: 1.5rem;
+      }
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #ffd700;
+        --swiper-navigation-size: 30px;
+      }
+      @keyframes drawLine {
+        from {
+          height: 0;
+        }
+        to {
+          height: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Floating Book Now Button -->
+    <a
+      href="#charges-section"
+      class="book-now-button bg-coral text-white font-bold py-4 px-6 rounded-full shadow-2xl hover:bg-red-700 transition-transform transform hover:scale-110"
+      style="background-color: #ff6f61"
+    >
+      Book Now! 🌴
+    </a>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-white relative">
+      <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div class="relative container mx-auto px-6 py-24 md:py-48 text-center">
+        <h3
+          class="text-xl md:text-2xl tracking-widest shifoyage-gold font-semibold"
+          style="color: #ffd700"
+        >
+          SHIFOYAGE
+        </h3>
+        <h1 class="text-5xl md:text-8xl font-black mt-4">
+          GOA: The Soul's High Tide
+        </h1>
+        <p class="text-lg md:text-2xl mt-6">
+          A Journey of Joy, Freedom, and Untamed Connection
+        </p>
+        <p class="mt-4 text-md md:text-xl font-semibold">
+          North Goa | South Goa | Waterfalls | Culture | Hidden Gems
+        </p>
+        <div
+          class="mt-8 bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full inline-block text-lg"
+        >
+          12TH OCTOBER - 17TH OCTOBER (6D/5N)
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+      <!-- What We Offer Section -->
+      <section class="text-center py-16 fade-in-section">
+        <h2 class="text-4xl md:text-5xl font-bold">
+          What's in Our Treasure Chest?
+        </h2>
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div class="icon-card bg-white p-6 rounded-2xl shadow-lg">
+            <svg
+              class="w-16 h-16 mx-auto shifoyage-green-text"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              ></path>
+            </svg>
+            <p class="mt-4 font-semibold">Vibe-checked Stays</p>
+          </div>
+          <div class="icon-card bg-white p-6 rounded-2xl shadow-lg">
+            <svg
+              class="w-16 h-16 mx-auto shifoyage-green-text"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+              ></path>
+            </svg>
+            <p class="mt-4 font-semibold">Lifetime Memories</p>
+          </div>
+          <div class="icon-card bg-white p-6 rounded-2xl shadow-lg">
+            <svg
+              class="w-16 h-16 mx-auto shifoyage-green-text"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+              ></path>
+              <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <p class="mt-4 font-semibold">Storytelling Photographer</p>
+          </div>
+          <div class="icon-card bg-white p-6 rounded-2xl shadow-lg">
+            <svg
+              class="w-16 h-16 mx-auto shifoyage-green-text"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0c-.454-.303-.977-.454-1.5-.454V5.454c.523 0 1.046-.151 1.5-.454a2.704 2.704 0 013 0 2.704 2.704 0 003 0 2.704 2.704 0 013 0 2.704 2.704 0 003 0c.454.303.977.454 1.5.454v10.092zM15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              ></path>
+            </svg>
+            <p class="mt-4 font-semibold">8 Meals Included</p>
+          </div>
+          <div class="icon-card bg-white p-6 rounded-2xl shadow-lg">
+            <svg
+              class="w-16 h-16 mx-auto shifoyage-green-text"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              ></path>
+            </svg>
+            <p class="mt-4 font-semibold">Soulful Activities</p>
+          </div>
+          <div class="icon-card bg-white p-6 rounded-2xl shadow-lg">
+            <svg
+              class="w-16 h-16 mx-auto shifoyage-green-text"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <p class="mt-4 font-semibold">24x7 Vehicle</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Shifoyage Difference Section -->
+      <section class="py-20 md:py-28 fade-in-section">
+        <div class="container mx-auto px-6">
+          <!-- The main card container with enhanced styling -->
+          <div
+            class="shifoyage-difference-card max-w-4xl mx-auto rounded-3xl shadow-2xl p-8 md:p-12 overflow-hidden"
+          >
+            <!-- Decorative Blobs for background texture -->
+            <div class="blob1"></div>
+            <div class="blob2"></div>
+
+            <div class="relative z-10 text-center">
+              <!-- Central SVG Icon: A compass representing 'Voyage' and 'Journey' -->
+              <div class="flex justify-center mb-6">
+                <svg
+                  class="w-20 h-20 text-coral pulsing-icon"
+                  style="color: #ff6f61"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    opacity="0.4"
+                  />
+                  <path
+                    d="M14.1214 14.1213L10.5858 10.5858M14.1214 14.1213L12 21L9.87873 9.87868L3 7.75736L9.87873 9.87868L10.5858 10.5858M14.1214 14.1213L16.2427 16.2426L21 3L10.5858 10.5858"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12 12.0001C12.8284 12.0001 13.5 11.3285 13.5 10.5001C13.5 9.67165 12.8284 9.00008 12 9.00008C11.1716 9.00008 10.5 9.67165 10.5 10.5001C10.5 11.3285 11.1716 12.0001 12 12.0001Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+
+              <h2 class="text-4xl md:text-5xl font-bold shifoyage-green-text">
+                This Isn't Just a Trip. It's a Shifoyage.
+              </h2>
+
+              <!-- Stylized "Shifa + Voyage" with elegant fonts -->
+              <div
+                class="my-6 flex items-center justify-center space-x-3 md:space-x-4"
+              >
+                <span
+                  class="font-semibold text-2xl md:text-3xl text-gray-700"
+                  style="font-family: 'Playfair Display', serif"
+                  >Shifa</span
+                >
+                <span class="text-3xl md:text-4xl shifoyage-coral font-light"
+                  >+</span
+                >
+                <span
+                  class="font-semibold text-2xl md:text-3xl text-gray-700"
+                  style="font-family: 'Playfair Display', serif"
+                  >Voyage</span
+                >
+              </div>
+              <p
+                class="text-xl md:text-2xl mt-2 shifoyage-coral font-semibold italic"
+              >
+                A Healing Journey
+              </p>
+
+              <!-- The core message, with key phrases highlighted -->
+              <p
+                class="max-w-3xl mx-auto mt-8 text-lg text-gray-600 leading-relaxed"
+              >
+                We believe travel should do more than just show you new places.
+                It should reintroduce you to yourself. A Shifoyage is a journey
+                designed for healing, connection, and transformation. You don't
+                just see the sights;
+                <strong class="shifoyage-green-text">you feel them</strong>. You
+                don't just meet people;
+                <strong class="shifoyage-green-text">you form a tribe</strong>.
+                You don't just take a break from life;
+                <strong class="shifoyage-green-text"
+                  >you begin a more beautiful one.</strong
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Itinerary Section -->
+      <section class="py-16 fade-in-section">
+        <div class="container mx-auto px-6">
+          <div class="text-center">
+            <h2 class="text-4xl md:text-5xl font-bold">
+              Your Goan Saga: A Journey Inward
+            </h2>
+            <p class="max-w-2xl mx-auto mt-4 text-gray-600">
+              Six days of sun, soul, and serenity. Here's a glimpse of the magic
+              that awaits.
+            </p>
+          </div>
+
+          <!-- Quick Itinerary Section -->
+          <div
+            class="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6"
+          >
+            <div class="quick-itinerary-card p-4 text-center">
+              <div
+                class="day-badge text-sm font-bold inline-block px-3 py-1 rounded-full"
+              >
+                Day 1
+              </div>
+              <div class="icon mt-3">🌴</div>
+              <h4 class="font-semibold mt-2 text-gray-700">Arambol Vibes</h4>
+            </div>
+            <div class="quick-itinerary-card p-4 text-center">
+              <div
+                class="day-badge text-sm font-bold inline-block px-3 py-1 rounded-full"
+              >
+                Day 2
+              </div>
+              <div class="icon mt-3">🏰</div>
+              <h4 class="font-semibold mt-2 text-gray-700">Forts & Fleas</h4>
+            </div>
+            <div class="quick-itinerary-card p-4 text-center">
+              <div
+                class="day-badge text-sm font-bold inline-block px-3 py-1 rounded-full"
+              >
+                Day 3
+              </div>
+              <div class="icon mt-3">🦋</div>
+              <h4 class="font-semibold mt-2 text-gray-700">Secret Shores</h4>
+            </div>
+            <div class="quick-itinerary-card p-4 text-center">
+              <div
+                class="day-badge text-sm font-bold inline-block px-3 py-1 rounded-full"
+              >
+                Day 4
+              </div>
+              <div class="icon mt-3">🌊</div>
+              <h4 class="font-semibold mt-2 text-gray-700">Dudhsagar Trek</h4>
+            </div>
+            <div class="quick-itinerary-card p-4 text-center">
+              <div
+                class="day-badge text-sm font-bold inline-block px-3 py-1 rounded-full"
+              >
+                Day 5
+              </div>
+              <div class="icon mt-3">🎨</div>
+              <h4 class="font-semibold mt-2 text-gray-700">Culture & Spice</h4>
+            </div>
+            <div class="quick-itinerary-card p-4 text-center">
+              <div
+                class="day-badge text-sm font-bold inline-block px-3 py-1 rounded-full"
+              >
+                Day 6
+              </div>
+              <div class="icon mt-3">❤️</div>
+              <h4 class="font-semibold mt-2 text-gray-700">Farewell Goa</h4>
+            </div>
+          </div>
+
+          <!-- Detailed Timeline Section -->
+          <div class="mt-20">
+            <div class="timeline">
+              <!-- Day 1 -->
+              <div class="timeline-container left" style="--delay: 1">
+                <div class="timeline-content">
+                  <h3 class="text-2xl font-bold shifoyage-coral">
+                    Day 1: Bohemian Rhapsody in Arambol
+                  </h3>
+                  <p class="mt-4 text-gray-600">
+                    Arrive at Mopa Airport (GOX) and glide into the bohemian
+                    heart of North Goa. We'll explore the serene
+                    <strong>Sweet Water Lake</strong> before finding our rhythm
+                    at the famous <strong>Arambol sunset drum circle</strong>.
+                  </p>
+                  <div class="swiper-container mt-6">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1594482778251-93437e63b652?q=80&w=1932&auto=format&fit=crop"
+                          alt="Arambol Beach"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1620332203736-646259074748?q=80&w=1887&auto=format&fit=crop"
+                          alt="Sweet Water Lake"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1589996383733-2273c3cf2e59?q=80&w=1887&auto=format&fit=crop"
+                          alt="Goa Drum Circle"
+                        />
+                      </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                  </div>
+                  <div class="session-box session-day1">
+                    <h4 class="font-bold text-lg">
+                      Evening Session: The Art of Arrival
+                    </h4>
+                    <p class="text-sm mt-1">
+                      A gentle icebreaker and intention-setting circle to shed
+                      our city skins and fully arrive in the present moment,
+                      connecting with the land and each other.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Day 2 -->
+              <div class="timeline-container right" style="--delay: 2">
+                <div class="timeline-content">
+                  <h3 class="text-2xl font-bold shifoyage-coral">
+                    Day 2: Forts, Fleas & Freedom
+                  </h3>
+                  <p class="mt-4 text-gray-600">
+                    Channel your inner explorer as we visit the iconic
+                    <strong>Chapora 'Dil Chahta Hai' Fort</strong> and the
+                    stunningly restored <strong>Reis Magos Fort</strong>. Dive
+                    into the vibrant chaos of the
+                    <strong>Anjuna Flea Market</strong> and end the day at the
+                    lively Baga Beach.
+                  </p>
+                  <div class="swiper-container mt-6">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1570244822940-3b356320125b?q=80&w=1887&auto=format&fit=crop"
+                          alt="Chapora Fort"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1614897334391-59de4931d09d?q=80&w=1964&auto=format&fit=crop"
+                          alt="Anjuna Flea Market"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1603982843382-2715472e73f8?q=80&w=1887&auto=format&fit=crop"
+                          alt="Reis Magos Fort"
+                        />
+                      </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Day 3 -->
+              <div class="timeline-container left" style="--delay: 3">
+                <div class="timeline-content">
+                  <h3 class="text-2xl font-bold shifoyage-coral">
+                    Day 3: South Goa's Secret Shores
+                  </h3>
+                  <p class="mt-4 text-gray-600">
+                    We journey south to tranquility. A boat will ferry us to the
+                    hidden <strong>Butterfly Beach</strong> for a magical
+                    experience. Later, we'll chill on the crescent shores of
+                    <strong>Palolem Beach</strong>, perfect for kayaking or
+                    simply being.
+                  </p>
+                  <div class="swiper-container mt-6">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1600206253497-169b19e2c608?q=80&w=1887&auto=format&fit=crop"
+                          alt="Butterfly Beach"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1599308253617-cb4a354a7eb2?q=80&w=1887&auto=format&fit=crop"
+                          alt="Palolem Beach"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1500930287096-c39717642426?q=80&w=1887&auto=format&fit=crop"
+                          alt="Kayaking in Goa"
+                        />
+                      </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                  </div>
+                  <div class="session-box session-day3">
+                    <h4 class="font-bold text-lg">
+                      Sunset Session: The Freedom of Forgiveness
+                    </h4>
+                    <p class="text-sm mt-1">
+                      A profound act of self-love. As the sun melts into the
+                      sea, we'll guide you through a session of releasing old
+                      anchors and emotional baggage.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Day 4 -->
+              <div class="timeline-container right" style="--delay: 4">
+                <div class="timeline-content">
+                  <h3 class="text-2xl font-bold shifoyage-coral">
+                    Day 4: The Majestic Dudhsagar Falls
+                  </h3>
+                  <p class="mt-4 text-gray-600">
+                    An entire day dedicated to an epic adventure! We'll trek
+                    through the lush Bhagwan Mahavir Wildlife Sanctuary to
+                    witness the awe-inspiring
+                    <strong>Dudhsagar Waterfalls</strong>, the 'Sea of Milk'.
+                    This isn't just a trek; it's a journey inward, overcoming
+                    challenges together.
+                  </p>
+                  <div class="swiper-container mt-6">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1602213349657-123f5b0185fb?q=80&w=1887&auto=format&fit=crop"
+                          alt="Dudhsagar Falls"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1618991262529-762d3a35aae2?q=80&w=1974&auto=format&fit=crop"
+                          alt="Goa Trekking"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1593361148638-45e385a84a26?q=80&w=1887&auto=format&fit=crop"
+                          alt="Goa Nature"
+                        />
+                      </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Day 5 -->
+              <div class="timeline-container left" style="--delay: 5">
+                <div class="timeline-content">
+                  <h3 class="text-2xl font-bold shifoyage-coral">
+                    Day 5: A Slice of Goan Culture
+                  </h3>
+                  <p class="mt-4 text-gray-600">
+                    Immerse in culture! We'll wander through the colourful lanes
+                    of <strong>Fontainhas</strong>, Panjim's Latin Quarter.
+                    Then, a visit to a <strong>Spice Plantation</strong> for an
+                    aromatic tour and a traditional Goan lunch.
+                  </p>
+                  <div class="swiper-container mt-6">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1600854932111-a53d35363efa?q=80&w=1887&auto=format&fit=crop"
+                          alt="Fontainhas Latin Quarter"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1580795479958-f5e05a81a5c1?q=80&w=1935&auto=format&fit=crop"
+                          alt="Spice Plantation"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1612438833963-cf275c381549?q=80&w=1887&auto=format&fit=crop"
+                          alt="Goan Food"
+                        />
+                      </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                  </div>
+                  <div class="session-box session-day5">
+                    <h4 class="font-bold text-lg">
+                      Farewell Bonfire: Integration & Storytelling
+                    </h4>
+                    <p class="text-sm mt-1">
+                      Under the stars, we share stories, laughter, and
+                      reflections from our journey, integrating our experiences
+                      so we can carry the magic of Goa home with us.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Day 6 -->
+              <div class="timeline-container right" style="--delay: 6">
+                <div class="timeline-content">
+                  <h3 class="text-2xl font-bold shifoyage-coral">
+                    Day 6: Until We Meet Again!
+                  </h3>
+                  <p class="mt-4 text-gray-600">
+                    After one last Goan breakfast, we head to the airport, our
+                    hearts full of memories, our spirits renewed, and our souls
+                    painted in the colours of Goa. Adeus, until next time!
+                  </p>
+                  <div class="swiper-container mt-6">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1542358445-0824c4b7d6a5?q=80&w=1887&auto=format&fit=crop"
+                          alt="Goa Sunset"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1562674334-a040b2a43b24?q=80&w=1887&auto=format&fit=crop"
+                          alt="Friends in Goa"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="https://images.unsplash.com/photo-1574781481379-10ce8a0a4f22?q=80&w=1887&auto=format&fit=crop"
+                          alt="Goa Airport Departure"
+                        />
+                      </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Why Shifoyage Section -->
+      <section class="py-20 md:py-28 fade-in-section bg-gray-50">
+        <div class="container mx-auto px-6">
+          <div class="text-center">
+            <h2 class="text-4xl md:text-5xl font-bold shifoyage-green-text">
+              Why Travel With Shifoyage?
+            </h2>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto text-gray-700 mt-6">
+              Because here...
+              <span class="font-bold shifoyage-coral" style="color: #ff6f61"
+                >you don't just travel, you heal, evolve, feel seen, and become
+                part of a family.</span
+              >
+            </p>
+          </div>
+
+          <div
+            class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <!-- Card 1: Purposeful Travel -->
+            <div class="why-shifoyage-card p-8">
+              <div class="icon-container icon-bg-1">
+                <svg
+                  class="w-8 h-8 shifoyage-green-text"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a12.025 12.025 0 01-4.132 4.95m2.226-6.84a12.025 12.025 0 00-4.132-4.95m-2.226 6.84a6 6 0 01-7.38-5.84h4.82m2.56 5.84a12.025 12.025 0 01-4.95-4.132m6.84 2.226a12.025 12.025 0 00-4.95 4.132M3.812 9.01a6 6 0 015.84-7.38v4.82m-5.84 2.56a12.025 12.025 0 014.132-4.95m-2.226 6.84a12.025 12.025 0 004.132 4.95"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl shifoyage-green-text">
+                Purposeful Travel
+              </h3>
+              <p class="text-gray-600 mt-2">
+                We go beyond sightseeing. Our journeys are centered on healing,
+                soulful exploration, and inner connection.
+              </p>
+            </div>
+
+            <!-- Card 2: Travel with the Founder -->
+            <div class="why-shifoyage-card p-8">
+              <div class="icon-container icon-bg-2">
+                <svg
+                  class="w-8 h-8 shifoyage-coral"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 18.25a2.25 2.25 0 01-2.25 2.25H7.25A2.25 2.25 0 015 18.25v-8.5A2.25 2.25 0 017.25 7.5h1.5a.75.75 0 000-1.5h-1.5A3.75 3.75 0 003.5 9.75v8.5A3.75 3.75 0 007.25 22h9.5A3.75 3.75 0 0020.5 18.25v-8.5A3.75 3.75 0 0016.75 6h-1.5a.75.75 0 000 1.5h1.5a2.25 2.25 0 012.25 2.25v8.5z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12.75 2.25a.75.75 0 00-1.5 0v6.5a.75.75 0 001.5 0v-6.5z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5a.75.75 0 00-1.5 0v2a.75.75 0 001.5 0v-2z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 4.5a.75.75 0 00-1.5 0v2a.75.75 0 001.5 0v-2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl shifoyage-green-text">
+                Travel with the Founder
+              </h3>
+              <p class="text-gray-600 mt-2">
+                You're not with a hired guide; you're with the heart of
+                Shifoyage, ensuring a personal, nurturing, and deeply connected
+                experience.
+              </p>
+            </div>
+
+            <!-- Card 3: A Community Vibe -->
+            <div class="why-shifoyage-card p-8">
+              <div class="icon-container icon-bg-3">
+                <svg
+                  class="w-8 h-8 text-yellow-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.998-4.998 9.094 9.094 0 00-5.27 5.27 3 3 0 004.998 4.998A9.094 9.094 0 0018 18.72zM9.75 6.75A.75.75 0 0110.5 6h3a.75.75 0 010 1.5h-3a.75.75 0 01-.75-.75zM9.75 12A.75.75 0 0110.5 11.25h3a.75.75 0 010 1.5h-3a.75.75 0 01-.75-.75zM5.25 6.75a.75.75 0 01.75-.75h3a.75.75 0 010 1.5h-3a.75.75 0 01-.75-.75zM5.25 12a.75.75 0 01.75-.75h3a.75.75 0 010 1.5h-3a.75.75 0 01-.75-.75zM12 2.25a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5a.75.75 0 01.75-.75zM12 15.75a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5a.75.75 0 01.75-.75z"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl shifoyage-green-text">
+                A Community Vibe
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Through our unique activities, strangers become a tribe. We
+                create a safe, community-driven space where you form
+                long-lasting bonds.
+              </p>
+            </div>
+
+            <!-- Card 4: Life-Changing Sessions -->
+            <div class="why-shifoyage-card p-8">
+              <div class="icon-container icon-bg-4">
+                <svg
+                  class="w-8 h-8 text-emerald-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl shifoyage-green-text">
+                Life-Changing Sessions
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Each trip includes deep, reflective sessions on life,
+                relationships, and self-growth, helping you find clarity and
+                peace.
+              </p>
+            </div>
+
+            <!-- Card 5: More Than a Customer -->
+            <div class="why-shifoyage-card p-8">
+              <div class="icon-container icon-bg-5">
+                <svg
+                  class="w-8 h-8 text-blue-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.998-4.998 9.094 9.094 0 00-5.27 5.27 3 3 0 004.998 4.998A9.094 9.094 0 0018 18.72z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl shifoyage-green-text">
+                More Than a Customer
+              </h3>
+              <p class="text-gray-600 mt-2">
+                You are not a client or a number to us. You become part of the
+                Shifoyage family, with 24/7 personal and emotional support.
+              </p>
+            </div>
+
+            <!-- Card 6: Heart-Centered Intention -->
+            <div class="why-shifoyage-card p-8">
+              <div class="icon-container icon-bg-6">
+                <svg
+                  class="w-8 h-8 text-red-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-bold text-xl shifoyage-green-text">
+                Heart-Centered Intention
+              </h3>
+              <p class="text-gray-600 mt-2">
+                Every aspect of the journey, from the stays we choose to the
+                activities we design, is intentional, heart-centered, and
+                designed to nurture your soul.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Charges & CTA Section -->
+      <section
+        id="charges-section"
+        class="py-20 text-center fade-in-section bg-gray-100 rounded-3xl mt-10"
+      >
+        <h2 class="text-4xl md:text-5xl font-bold">Your Ticket to Paradise</h2>
+        <div
+          class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto"
+        >
+          <div
+            class="border-4 border-yellow-400 border-dashed p-8 rounded-2xl bg-white shadow-xl transform hover:scale-105 transition-transform duration-300"
+          >
+            <h3 class="text-3xl font-bold">Goa to Goa</h3>
+            <p
+              class="text-5xl font-bold my-4 shifoyage-coral"
+              style="color: #ff6f61"
+            >
+              ₹18,999/-
+              <span class="text-2xl text-gray-500 line-through">₹21,999/-</span>
+            </p>
+            <p
+              class="font-semibold text-lg pulse-offer bg-yellow-300 inline-block px-4 py-1 rounded-full"
+            >
+              Festive Offer!
+            </p>
+          </div>
+          <div
+            class="border-4 border-yellow-400 border-dashed p-8 rounded-2xl bg-white shadow-xl transform hover:scale-105 transition-transform duration-300"
+          >
+            <h3 class="text-3xl font-bold">Bhopal to Bhopal</h3>
+            <p
+              class="text-5xl font-bold my-4 shifoyage-coral"
+              style="color: #ff6f61"
+            >
+              ₹26,999/-
+              <span class="text-2xl text-gray-500 line-through">₹30,999/-</span>
+            </p>
+            <p
+              class="font-semibold text-lg pulse-offer bg-yellow-300 inline-block px-4 py-1 rounded-full"
+            >
+              Festive Offer!
+            </p>
+          </div>
+        </div>
+        <div class="mt-12">
+          <div
+            class="inline-block bg-coral text-white font-bold p-4 rounded-lg shadow-lg text-lg"
+            style="background-color: #ff6f61"
+          >
+            LIMITED SEATS! The Tide is Calling!
+          </div>
+          <a
+            href="#"
+            class="mt-8 inline-block shifoyage-green text-white font-bold py-5 px-12 rounded-full text-2xl shadow-xl hover:bg-green-800 transform hover:scale-105 transition-transform duration-300"
+            style="background-color: #2f4f4f"
+          >
+            Claim Your Spot!
+          </a>
+          <p class="mt-4 text-gray-600">
+            After payment, send us a screenshot for confirmation!
+          </p>
+        </div>
+      </section>
+
+      <!-- Gemini AI Itinerary Generator -->
+      <section
+        class="py-16 fade-in-section gemini-feature-box rounded-3xl text-center"
+      >
+        <h2 class="text-4xl md:text-5xl font-bold">
+          ✨ Craft Your Perfect Goa Day
+        </h2>
+        <p class="max-w-2xl mx-auto mt-4 text-gray-600">
+          Tell us your vibe! Are you into adventure, food, relaxation, or
+          history? Let our AI craft a personalized day plan just for you.
+        </p>
+        <div class="mt-8 max-w-xl mx-auto">
+          <input
+            id="vibe-input"
+            type="text"
+            placeholder="e.g., 'adventure and local food' or 'relaxing beaches'"
+            class="w-full p-4 rounded-full border-2 border-gray-300 focus:border-coral focus:ring-coral transition"
+          />
+          <button
+            id="generate-vibe-btn"
+            class="mt-4 bg-coral text-white font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-red-700 transform hover:scale-105 transition-transform duration-300"
+            style="background-color: #ff6f61"
+          >
+            Generate My Vibe
+          </button>
+        </div>
+        <div
+          id="vibe-result"
+          class="mt-8 max-w-3xl mx-auto p-6 rounded-2xl gemini-result-box text-left hidden"
+        >
+          <!-- AI-generated itinerary will appear here -->
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="py-16 fade-in-section">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">
+          Got Questions? We've Got Answers!
+        </h2>
+        <div class="max-w-4xl mx-auto space-y-4">
+          <div class="faq-item bg-white p-6 rounded-lg shadow-md">
+            <div class="faq-question flex justify-between items-center">
+              <h4 class="text-lg font-semibold">
+                What makes a Shifoyage trip different?
+              </h4>
+              <span class="faq-icon text-2xl font-bold shifoyage-green-text"
+                >+</span
+              >
+            </div>
+            <div class="faq-answer pt-4 text-gray-600">
+              We focus on healing, soulful exploration, and inner connection,
+              not just sightseeing. Our trips are designed to be transformative
+              experiences where you connect with yourself, nature, and a
+              community of like-minded people. You travel with the founder, not
+              just a guide, ensuring a deeply personal and nurturing journey.
+            </div>
+          </div>
+          <div class="faq-item bg-white p-6 rounded-lg shadow-md">
+            <div class="faq-question flex justify-between items-center">
+              <h4 class="text-lg font-semibold">
+                What is the group vibe like?
+              </h4>
+              <span class="faq-icon text-2xl font-bold shifoyage-green-text"
+                >+</span
+              >
+            </div>
+            <div class="faq-answer pt-4 text-gray-600">
+              Our groups are community-driven, safe, and nurturing. We use fun
+              icebreakers and deep, connection-based activities to turn
+              strangers into friends. You're not a customer; you become part of
+              the Shifoyage family. Many of our travelers form long-lasting
+              bonds that continue long after the trip ends.
+            </div>
+          </div>
+          <div class="faq-item bg-white p-6 rounded-lg shadow-md">
+            <div class="faq-question flex justify-between items-center">
+              <h4 class="text-lg font-semibold">
+                I'm a solo traveler. Is this trip for me?
+              </h4>
+              <span class="faq-icon text-2xl font-bold shifoyage-green-text"
+                >+</span
+              >
+            </div>
+            <div class="faq-answer pt-4 text-gray-600">
+              Absolutely! A majority of our travelers are solo adventurers. Our
+              trips are the perfect environment to meet new people in a safe and
+              welcoming setting. The group activities and shared experiences
+              make it easy to connect with others.
+            </div>
+          </div>
+          <div class="faq-item bg-white p-6 rounded-lg shadow-md">
+            <div class="faq-question flex justify-between items-center">
+              <h4 class="text-lg font-semibold">
+                What should I pack for this trip?
+              </h4>
+              <span class="faq-icon text-2xl font-bold shifoyage-green-text"
+                >+</span
+              >
+            </div>
+            <div class="faq-answer pt-4 text-gray-600">
+              We recommend packing light and smart! But for a detailed list
+              based on our specific itinerary...
+              <button
+                id="generate-packing-btn"
+                class="mt-4 bg-green-700 text-white font-bold py-2 px-6 rounded-full text-md shadow-lg hover:bg-green-800 transform hover:scale-105 transition-transform duration-300"
+              >
+                ✨ Generate My Smart Packing List
+              </button>
+              <div id="packing-list-result" class="mt-4"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="shifoyage-green text-white text-center p-8 mt-16"
+      style="background-color: #2f4f4f"
+    >
+      <p class="font-bold text-xl">SHIFOYAGE</p>
+      <p class="mt-2 text-sm">FUN. CONNECTION. COMMUNITY. TRAVEL. BLISS</p>
+      <div class="mt-4">
+        <p>Connect with the Tribe:</p>
+        <p>9893114556 | 9990854146</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- Initialize Swiper for Itinerary Carousels ---
+        const swipers = new Swiper(".swiper-container", {
+          loop: true,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          effect: "fade",
+          fadeEffect: {
+            crossFade: true,
+          },
+        });
+
+        // --- Intersection Observer for fade-in animations ---
+        const sections = document.querySelectorAll(".fade-in-section");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+
+        // --- Animated Counters ---
+        const counters = document.querySelectorAll(".animated-counter");
+        const counterObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute("data-target");
+                let count = 0;
+                const speed = 200; // Lower number is faster animation
+
+                const updateCount = () => {
+                  const increment = target / speed;
+                  if (count < target) {
+                    count += increment;
+                    counter.innerText = Math.ceil(count);
+                    setTimeout(updateCount, 10);
+                  } else {
+                    counter.innerText = target;
+                  }
+                };
+                updateCount();
+                counterObserver.unobserve(counter); // Animate only once
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+        counters.forEach((counter) => {
+          counterObserver.observe(counter);
+        });
+
+        // --- FAQ Accordion Logic ---
+        const faqItems = document.querySelectorAll(".faq-item");
+        faqItems.forEach((item) => {
+          const question = item.querySelector(".faq-question");
+          const answer = item.querySelector(".faq-answer");
+          const icon = item.querySelector(".faq-icon");
+
+          question.addEventListener("click", () => {
+            const isOpen =
+              answer.style.maxHeight && answer.style.maxHeight !== "0px";
+
+            faqItems.forEach((otherItem) => {
+              if (otherItem !== item) {
+                // Don't close an answer if it's currently showing an AI result
+                if (!otherItem.querySelector(".faq-answer").dataset.aiActive) {
+                  otherItem.querySelector(".faq-answer").style.maxHeight =
+                    "0px";
+                  otherItem.querySelector(".faq-icon").textContent = "+";
+                }
+              }
+            });
+
+            if (isOpen) {
+              answer.style.maxHeight = "0px";
+              icon.textContent = "+";
+              answer.removeAttribute("data-ai-active");
+            } else {
+              answer.style.maxHeight = answer.scrollHeight + "px";
+              icon.textContent = "-";
+            }
+          });
+        });
+
+        // --- Gemini API Integration ---
+        const vibeButton = document.getElementById("generate-vibe-btn");
+        const vibeInput = document.getElementById("vibe-input");
+        const vibeResultContainer = document.getElementById("vibe-result");
+        const packingButton = document.getElementById("generate-packing-btn");
+        const packingResultContainer = document.getElementById(
+          "packing-list-result"
+        );
+
+        const apiKey = "AIzaSyAIHxOp57o-G0WbxPFTTNWrZueG8YWsxcM"; // API key will be injected by the environment
+
+        async function callGemini(prompt, resultContainer) {
+          resultContainer.innerHTML = '<div class="loader"></div>';
+          resultContainer.classList.remove("hidden");
+
+          // For accordions, we need to resize them after adding the loader
+          const parentAnswer = resultContainer.closest(".faq-answer");
+          if (parentAnswer) {
+            parentAnswer.style.maxHeight = parentAnswer.scrollHeight + "px";
+            parentAnswer.dataset.aiActive = "true";
+          }
+
+          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+          const payload = {
+            contents: [
+              {
+                role: "user",
+                parts: [{ text: prompt }],
+              },
+            ],
+          };
+
+          try {
+            const response = await fetch(apiUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+              throw new Error(
+                `API call failed with status: ${response.status}`
+              );
+            }
+
+            const result = await response.json();
+
+            if (
+              result.candidates &&
+              result.candidates.length > 0 &&
+              result.candidates[0].content &&
+              result.candidates[0].content.parts &&
+              result.candidates[0].content.parts.length > 0
+            ) {
+              let text = result.candidates[0].content.parts[0].text;
+              // Basic markdown to HTML conversion
+              text = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>"); // Bold
+              text = text.replace(/\*(.*?)\*/g, "<em>$1</em>"); // Italics
+              text = text.replace(/(\r\n|\n|\r)/gm, "<br>"); // Line breaks
+              resultContainer.innerHTML = text;
+            } else {
+              resultContainer.innerHTML =
+                '<p class="text-red-500">Sorry, something went wrong. Please try again.</p>';
+            }
+          } catch (error) {
+            console.error("Gemini API Error:", error);
+            resultContainer.innerHTML = `<p class="text-red-500">An error occurred: ${error.message}. Check the console for details.</p>`;
+          } finally {
+            if (parentAnswer) {
+              parentAnswer.style.maxHeight = parentAnswer.scrollHeight + "px";
+              parentAnswer.removeAttribute("data-ai-active");
+            }
+          }
+        }
+
+        vibeButton.addEventListener("click", () => {
+          const userVibe = vibeInput.value;
+          if (!userVibe) {
+            alert("Please enter your vibe!");
+            return;
+          }
+          const prompt = `Based on the Shifoyage Goa trip itinerary (Arambol, Chapora Fort, Anjuna Market, Butterfly Beach, Palolem, Dudhsagar Falls trek, Fontainhas, Spice Plantation), create a personalized one-day plan for a traveler whose vibe is '${userVibe}'. The plan should be creative and detailed, suggesting specific activities, potential food spots, and a general timeline for the day. Make it sound exciting and aligned with the Shifoyage brand of connection and joy.`;
+          callGemini(prompt, vibeResultContainer);
+        });
+
+        packingButton.addEventListener("click", () => {
+          const prompt = `Generate a comprehensive packing list for a 6-day, 5-night trip to Goa, India in mid-October. The itinerary includes:
+                - Beach time (Arambol, Palolem)
+                - Visiting forts and markets (Chapora, Anjuna)
+                - A boat trip to a hidden beach (Butterfly Beach)
+                - A full-day trek to Dudhsagar Waterfalls
+                - Cultural exploration (Fontainhas Latin Quarter, Spice Plantation)
+                - A farewell bonfire.
+                The list should be categorized into 'Clothing', 'Footwear', 'Toiletries & Health', 'Essentials & Documents', and 'Miscellaneous'. Be specific and provide helpful tips. For example, under clothing, mention quick-dry clothes for the trek. Format the output with clear headings for each category.`;
+          callGemini(prompt, packingResultContainer);
+        });
+      });
+    </script>
+  </body>
+</html>
